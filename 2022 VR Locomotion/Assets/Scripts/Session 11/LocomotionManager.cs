@@ -7,8 +7,28 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class LocomotionManager : MonoBehaviour
 {
-    public MoveScheme moveScheme;
-    public TurnStyle turnStyle;
+    [SerializeField]
+    private MoveScheme _moveScheme;
+    public MoveScheme moveScheme
+    {
+        get => _moveScheme;
+        set
+        {
+            SetMoveScheme(value);
+            _moveScheme = value;
+        }
+    }
+    [SerializeField]
+    private TurnStyle _turnStyle;
+    public TurnStyle turnStyle
+    {
+        get => _turnStyle;
+        set
+        {
+            SetTurnStyle(value);
+            turnStyle = value;
+        }
+    }
     public MoveForwardSource moveForwardSource;
 
     /// <summary>

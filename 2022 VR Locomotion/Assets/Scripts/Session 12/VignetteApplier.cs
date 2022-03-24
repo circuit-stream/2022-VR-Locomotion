@@ -70,7 +70,7 @@ public class VignetteApplier : MonoBehaviour
         }
 
 
-        yield return null;
+        yield return new WaitForEndOfFrame();
     }
 
     private void ApplyValue(float value)
