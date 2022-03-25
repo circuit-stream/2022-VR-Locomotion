@@ -69,8 +69,9 @@ public class ScreenFade : MonoBehaviour
             // apply intensity
             float intensity = Mathf.Lerp(startValue, endValue, blend);
             ApplyValue(intensity);
+            yield return new WaitForEndOfFrame();
         }
-        yield return null;
+        
     }
 
     private void ApplyValue(float value)
