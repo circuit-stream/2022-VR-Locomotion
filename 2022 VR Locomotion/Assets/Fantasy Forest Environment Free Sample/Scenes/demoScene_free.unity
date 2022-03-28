@@ -950,6 +950,10 @@ PrefabInstance:
       propertyPath: volume
       value: 
       objectReference: {fileID: 903625189}
+    - target: {fileID: 3820675151101534246, guid: 6c84b6a7b86440743a9631c8bd0b337a, type: 3}
+      propertyPath: locomotionManager
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3820675151251775216, guid: 6c84b6a7b86440743a9631c8bd0b337a, type: 3}
       propertyPath: m_InteractionManager
       value: 
