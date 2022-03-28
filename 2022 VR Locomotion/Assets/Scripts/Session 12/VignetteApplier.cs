@@ -12,7 +12,7 @@ public class VignetteApplier : MonoBehaviour
     public float duration = 0.5f;
     public Volume volume = null;
 
-    public LocomotionProvider locomotionProvider;
+    public List<LocomotionProvider> locomotionProviders = new List<LocomotionProvider>();
     private Vignette vignette;
     
     void Awake()
@@ -29,29 +29,33 @@ public class VignetteApplier : MonoBehaviour
     private void OnEnable()
     {
         // subscribe 
-        locomotionProvider.beginLocomotion += FadeIn;
-        locomotionProvider.endLocomotion += FadeOut;
+        foreach(var locomotionProvider in locomotionProviders)
+        {
+            locomotionProvider.beginLocomotion += FadeIn;
+            locomotionProvider.endLocomotion += FadeOut;
+        }
 
     }
     private void OnDisable()
     {
         // unsubscribe
-        locomotionProvider.beginLocomotion -= FadeIn;
-        locomotionProvider.endLocomotion -= FadeOut;
+        foreach (var locomotionProvider in locomotionProviders)
+        {
+            locomotionProvider.beginLocomotion -= FadeIn;
+            locomotionProvider.endLocomotion -= FadeOut;
+        }
     }
 
 
     public void FadeIn(LocomotionSystem locomotionSystem)
     {
         // tween to intensity
-        Debug.Log("Fade In");
         StartCoroutine(Fade(0, intensity));
     }
 
     public void FadeOut(LocomotionSystem locomotionSystem)
     {
         // tween to zero
-        Debug.Log("Fade Out");
         StartCoroutine(Fade(intensity, 0));
     }
 
@@ -67,10 +71,10 @@ public class VignetteApplier : MonoBehaviour
             // apply intensity
             float intensity = Mathf.Lerp(startValue, endValue, blend);
             ApplyValue(intensity);
+            yield return new WaitForEndOfFrame();
         }
 
-
-        yield return new WaitForEndOfFrame();
+        
     }
 
     private void ApplyValue(float value)

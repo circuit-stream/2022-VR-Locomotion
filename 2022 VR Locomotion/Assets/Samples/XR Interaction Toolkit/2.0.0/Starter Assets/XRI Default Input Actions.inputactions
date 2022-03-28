@@ -205,15 +205,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "WristMenu",
-                    "type": "Button",
-                    "id": "4483740d-743f-4628-bddf-5c02f7046cfc",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -577,17 +568,6 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "UI Press Value",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8c504bfc-b11a-45c1-910b-7c75d0c3e6df",
-                    "path": "<XRController>{LeftHand}/primaryButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WristMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
